@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Carro } from '../../../models/carro';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -12,10 +12,16 @@ import { CommonModule } from '@angular/common';
 })
 export class CarrosdetailsComponent {
 
-  carro: Carro = new Carro();
+  @Input("carro") carro: Carro = new Carro();
+  @Output("retorno") retorno: EventEmitter<any> = new EventEmitter();
+
+  constructor(){
+  }
 
   save(){
     alert('Salvo com sucesso!');
+    this.carro.id = 4444;
+    this.retorno.emit(this.carro);  
   }
 
 }

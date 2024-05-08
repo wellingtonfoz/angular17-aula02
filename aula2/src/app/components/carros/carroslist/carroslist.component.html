@@ -3,10 +3,14 @@
 
   <div class="card">
     <div class="card-body">
-
-        <div class="alinharDireita">
-            <button [routerLink]="['/admin/carros/new']" class="btn btn-primary">Novo</button>
-        </div>
+      <div class="alinharDireita">
+        <button [routerLink]="['/admin/carros/new']" class="btn btn-primary">
+          Novo (por rota)
+        </button>
+        <button (click)="new()" class="btn btn-primary">
+          Novo (modal)
+        </button>
+      </div>
 
       <table class="table">
         <thead>
@@ -19,13 +23,18 @@
         <tbody>
           @for (carro of lista; track $index) {
           <tr>
-            <th scope="row">{{carro.id}}</th>
-            <td>{{carro.nome}}</td>
+            <th scope="row">{{ carro.id }}</th>
+            <td>{{ carro.nome }}</td>
             <td>
-                <div class="alinharDireita">
-                <button [routerLink]="['/admin/carros/edit/'+carro.id]"  class="btn btn-primary">Editar</button>
+              <div class="alinharDireita">
+                <button
+                (click)="edit(carro)"
+                  class="btn btn-primary"
+                >
+                  Editar
+                </button>
                 <button class="btn btn-danger">Deletar</button>
-                </div>
+              </div>
             </td>
           </tr>
           }
@@ -34,3 +43,21 @@
     </div>
   </div>
 </div>
+
+<ng-template #modalDetalhe>
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Cadastro de carro</h5>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modalRef.close()"
+    ></button>
+  </div>
+  <div class="modal-body">
+    
+    <app-carrosdetails [carro]="carroEdit" (retorno)="retornoDetalhe($event)"></app-carrosdetails>
+    
+  </div>
+ 
+</ng-template>

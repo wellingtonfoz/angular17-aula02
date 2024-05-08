@@ -19,6 +19,6 @@ export class LoginComponent {
     if (this.login == 'admin' && this.senha == 'admin') {
       this.router.navigate(['admin/carros']);
     } else
-    alert('Login ou senha incorretos');
+      alert('Login ou senha incorretos');
   }
 }
