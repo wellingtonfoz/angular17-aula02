@@ -1,8 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
-@import '@fortawesome/fontawesome-free/css/all.css';
-@import 'mdb-angular-ui-kit/assets/scss/mdb.scss';
+@import "@fortawesome/fontawesome-free/css/all.css";
+@import "mdb-angular-ui-kit/assets/scss/mdb.scss";
 
+.alinharDireita {
+  text-align: right !important;
+}
 
-.alinharDireita{
-    text-align: right !important;
+.centralizar {
+  text-align: center !important;
+}
+
+.topo {
+  position: relative;
+  top: 25vh;
+}
+
+.card {
+  background-color: white;
+}
+
+body,
+.modal-body {
+  background-color: rgb(236 236 236) !important;
+}
+
+.modal-content {
+  .modal-header, .btn-close {
+    background-color: rgba(59, 113, 202);
+    color: white;
+  }
 }

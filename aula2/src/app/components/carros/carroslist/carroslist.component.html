@@ -1,18 +1,25 @@
 <div class="container">
-  <h3>LISTAGEM DE CARROS</h3>
-
+ <br>
   <div class="card">
-    <div class="card-body">
-      <div class="alinharDireita">
-        <button [routerLink]="['/admin/carros/new']" class="btn btn-primary">
-          Novo (por rota)
-        </button>
-        <button (click)="new()" class="btn btn-primary">
-          Novo (modal)
-        </button>
-      </div>
 
-      <table class="table">
+
+    <div class="card-body">
+
+      <h3 class="text-primary">CARROS</h3>
+
+
+      <div class="alinharDireita">
+        <button (click)="new()" class="btn btn-success btn-rounded">
+          <i class="fa fa-plus fa-1x"></i>
+        </button>
+        <button [routerLink]="['/admin/carros/new']" class="btn btn-primary btn-rounded">
+          <i class="fa fa-plus fa-1x"></i>
+        </button>
+       
+      </div>
+      <br>
+
+      <table class="table" border="1">
         <thead>
           <tr>
             <th scope="col">ID</th>
@@ -21,7 +28,7 @@
           </tr>
         </thead>
         <tbody>
-          @for (carro of lista; track $index) {
+          @for (carro of lista; track $index;) {
           <tr>
             <th scope="row">{{ carro.id }}</th>
             <td>{{ carro.nome }}</td>
@@ -29,17 +36,32 @@
               <div class="alinharDireita">
                 <button
                 (click)="edit(carro)"
-                  class="btn btn-primary"
+                  class="btn btn-success btn-rounded"
                 >
-                  Editar
+                <i class="fa fa-pen fa-1x"></i>
+              </button>
+
+                <button
+                [routerLink]="['/admin/carros/edit/'+carro.id]"
+                  class="btn btn-primary btn-rounded"
+                >
+                <i class="fa fa-pen fa-1x"></i>
                 </button>
-                <button class="btn btn-danger">Deletar</button>
+
+                <button (click)="deleteById(carro)" class="btn btn-danger btn-rounded">
+                  <i class="fa fa-trash-can fa-1x"></i>
+                </button>
               </div>
             </td>
           </tr>
           }
         </tbody>
       </table>
+
+
+
+
+
     </div>
   </div>
 </div>

@@ -1,25 +1,49 @@
+<div class="container login">
+  <div class="row topo">
+    <div class="col-lg-4"></div>
 
-<div class="container">
+    <div class="col-lg-4 centralizar">
+      <div class="card">
+        <div class="card-body">
+          <i class="fa fa-lock fa-3x"></i>
+          <h4>Autentique-se:</h4>
 
-    <div class="row">
-
-        <div class="col-lg-4">
-
+          <mdb-form-control>
+            <input
+              mdbInput
+              type="text"
+              id="form1"
+              class="form-control"
+              (keyup.enter)="logar()"
+              [(ngModel)]="login"
+            />
+            <label mdbLabel class="form-label" for="form1">Usuário</label>
+          </mdb-form-control>
+          <br />
+          <mdb-form-control>
+            <input
+              mdbInput
+              type="text"
+              id="form1"
+              class="form-control"
+              (keyup.enter)="logar()"
+              [(ngModel)]="senha"
+            />
+            <label mdbLabel class="form-label" for="form1">Senha</label>
+          </mdb-form-control>
+          <br />
+          <button
+            (click)="logar()"
+            type="button"
+            class="btn btn-primary btn-rounded"
+            mdbRipple
+          >
+            Logar
+          </button>
         </div>
-
-        <div class="col-lg-4">
-            Login:
-            <input type="text" name="login" class="form-control" [(ngModel)]="login" />
-            Login:
-            <input type="password" name="senha" class="form-control" [(ngModel)]="senha" />
-
-            <button class="btn btn-primary" (click)="logar()">Logar</button>
-        </div>
-
-        <div class="col-lg-4">
-
-        </div>
-
+      </div>
     </div>
 
+    <div class="col-lg-4"></div>
+  </div>
 </div>
